@@ -4,10 +4,11 @@ import Tile from './Tile';
 class GameOfLife extends Component {
   constructor(props) {
     super(props);
-    this.state = { genArray: Array(props.length ** 2).fill(0) };
+    this.state = { genArray: Array(props.rows ** props.columns).fill(0) };
 
     this.buttonElements = {};
-    this.length = this.props.length;
+    this.rows = this.props.rows;
+    this.columns = this.props.columns;
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -26,7 +27,7 @@ class GameOfLife extends Component {
   renderGrid() {
     let items = [];
     let grid = [];
-    for (var i = 1; i < this.length ** 2 + 1; i++) {
+    for (var i = 1; i < this.columns * this.rows + 1; i++) {
       items.push(
         <Tile
           key={i}
@@ -42,14 +43,14 @@ class GameOfLife extends Component {
       );
     }
 
-    for (var i = 0; i < this.length; i++) {
-      grid.push(<div key={i}>{items.splice(0, this.length)}</div>);
+    for (var i = 0; i < this.rows; i++) {
+      grid.push(<div key={i}>{items.splice(0, this.columns)}</div>);
     }
 
     return grid;
   }
   nextGen() {
-    console.log('Next Gen');
+    console.log('hi');
   }
 
   render() {
