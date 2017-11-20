@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <GameOfLife length="5" />
+        <GameOfLife length={5} />
       </div>
     );
   }
