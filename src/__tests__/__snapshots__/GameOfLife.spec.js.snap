@@ -1,0 +1,490 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameOfLife renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <GameOfLife
+    columns={2}
+    rows={2}
+    seed={
+        Array [
+            0,
+            1,
+            0,
+            1,
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="grid"
+>
+          <div>
+                    <Tile
+                              buttonRef={[Function]}
+                              dataId={0}
+                              handleClick={[Function]}
+                              name="tile1"
+                              value={0}
+                    />
+                    <Tile
+                              buttonRef={[Function]}
+                              dataId={1}
+                              handleClick={[Function]}
+                              name="tile2"
+                              value={1}
+                    />
+          </div>
+          <div>
+                    <Tile
+                              buttonRef={[Function]}
+                              dataId={2}
+                              handleClick={[Function]}
+                              name="tile3"
+                              value={0}
+                    />
+                    <Tile
+                              buttonRef={[Function]}
+                              dataId={3}
+                              handleClick={[Function]}
+                              name="tile4"
+                              value={1}
+                    />
+          </div>
+</div>,
+        <button
+          onClick={[Function]}
+>
+          Next Generation!
+</button>,
+      ],
+      "className": "container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div>
+              <Tile
+                            buttonRef={[Function]}
+                            dataId={0}
+                            handleClick={[Function]}
+                            name="tile1"
+                            value={0}
+              />
+              <Tile
+                            buttonRef={[Function]}
+                            dataId={1}
+                            handleClick={[Function]}
+                            name="tile2"
+                            value={1}
+              />
+</div>,
+            <div>
+              <Tile
+                            buttonRef={[Function]}
+                            dataId={2}
+                            handleClick={[Function]}
+                            name="tile3"
+                            value={0}
+              />
+              <Tile
+                            buttonRef={[Function]}
+                            dataId={3}
+                            handleClick={[Function]}
+                            name="tile4"
+                            value={1}
+              />
+</div>,
+          ],
+          "className": "grid",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "0",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Tile
+                  buttonRef={[Function]}
+                  dataId={0}
+                  handleClick={[Function]}
+                  name="tile1"
+                  value={0}
+/>,
+                <Tile
+                  buttonRef={[Function]}
+                  dataId={1}
+                  handleClick={[Function]}
+                  name="tile2"
+                  value={1}
+/>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "1",
+                "nodeType": "class",
+                "props": Object {
+                  "buttonRef": [Function],
+                  "dataId": 0,
+                  "handleClick": [Function],
+                  "name": "tile1",
+                  "value": 0,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": "2",
+                "nodeType": "class",
+                "props": Object {
+                  "buttonRef": [Function],
+                  "dataId": 1,
+                  "handleClick": [Function],
+                  "name": "tile2",
+                  "value": 1,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Tile
+                  buttonRef={[Function]}
+                  dataId={2}
+                  handleClick={[Function]}
+                  name="tile3"
+                  value={0}
+/>,
+                <Tile
+                  buttonRef={[Function]}
+                  dataId={3}
+                  handleClick={[Function]}
+                  name="tile4"
+                  value={1}
+/>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "3",
+                "nodeType": "class",
+                "props": Object {
+                  "buttonRef": [Function],
+                  "dataId": 2,
+                  "handleClick": [Function],
+                  "name": "tile3",
+                  "value": 0,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": "4",
+                "nodeType": "class",
+                "props": Object {
+                  "buttonRef": [Function],
+                  "dataId": 3,
+                  "handleClick": [Function],
+                  "name": "tile4",
+                  "value": 1,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Next Generation!",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Next Generation!",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="grid"
+>
+            <div>
+                        <Tile
+                                    buttonRef={[Function]}
+                                    dataId={0}
+                                    handleClick={[Function]}
+                                    name="tile1"
+                                    value={0}
+                        />
+                        <Tile
+                                    buttonRef={[Function]}
+                                    dataId={1}
+                                    handleClick={[Function]}
+                                    name="tile2"
+                                    value={1}
+                        />
+            </div>
+            <div>
+                        <Tile
+                                    buttonRef={[Function]}
+                                    dataId={2}
+                                    handleClick={[Function]}
+                                    name="tile3"
+                                    value={0}
+                        />
+                        <Tile
+                                    buttonRef={[Function]}
+                                    dataId={3}
+                                    handleClick={[Function]}
+                                    name="tile4"
+                                    value={1}
+                        />
+            </div>
+</div>,
+          <button
+            onClick={[Function]}
+>
+            Next Generation!
+</button>,
+        ],
+        "className": "container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div>
+                <Tile
+                                buttonRef={[Function]}
+                                dataId={0}
+                                handleClick={[Function]}
+                                name="tile1"
+                                value={0}
+                />
+                <Tile
+                                buttonRef={[Function]}
+                                dataId={1}
+                                handleClick={[Function]}
+                                name="tile2"
+                                value={1}
+                />
+</div>,
+              <div>
+                <Tile
+                                buttonRef={[Function]}
+                                dataId={2}
+                                handleClick={[Function]}
+                                name="tile3"
+                                value={0}
+                />
+                <Tile
+                                buttonRef={[Function]}
+                                dataId={3}
+                                handleClick={[Function]}
+                                name="tile4"
+                                value={1}
+                />
+</div>,
+            ],
+            "className": "grid",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "0",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Tile
+                    buttonRef={[Function]}
+                    dataId={0}
+                    handleClick={[Function]}
+                    name="tile1"
+                    value={0}
+/>,
+                  <Tile
+                    buttonRef={[Function]}
+                    dataId={1}
+                    handleClick={[Function]}
+                    name="tile2"
+                    value={1}
+/>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "1",
+                  "nodeType": "class",
+                  "props": Object {
+                    "buttonRef": [Function],
+                    "dataId": 0,
+                    "handleClick": [Function],
+                    "name": "tile1",
+                    "value": 0,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": "2",
+                  "nodeType": "class",
+                  "props": Object {
+                    "buttonRef": [Function],
+                    "dataId": 1,
+                    "handleClick": [Function],
+                    "name": "tile2",
+                    "value": 1,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": "1",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Tile
+                    buttonRef={[Function]}
+                    dataId={2}
+                    handleClick={[Function]}
+                    name="tile3"
+                    value={0}
+/>,
+                  <Tile
+                    buttonRef={[Function]}
+                    dataId={3}
+                    handleClick={[Function]}
+                    name="tile4"
+                    value={1}
+/>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "3",
+                  "nodeType": "class",
+                  "props": Object {
+                    "buttonRef": [Function],
+                    "dataId": 2,
+                    "handleClick": [Function],
+                    "name": "tile3",
+                    "value": 0,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": "4",
+                  "nodeType": "class",
+                  "props": Object {
+                    "buttonRef": [Function],
+                    "dataId": 3,
+                    "handleClick": [Function],
+                    "name": "tile4",
+                    "value": 1,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Next Generation!",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Next Generation!",
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
