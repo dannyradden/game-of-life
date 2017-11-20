@@ -4,18 +4,23 @@ import Tile from './Tile';
 class GameOfLife extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { genArray: Array(props.length ** 2).fill(0) };
 
     this.buttonElements = {};
     this.length = this.props.length;
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    if (e.target.value === '0') {
-      e.target.value = 1;
+  handleClick({ target }) {
+    let genCopy = this.state.genArray;
+    if (target.value === '0') {
+      target.value = 1;
+      genCopy[target.dataset.id] = 1;
     } else {
-      e.target.value = 0;
+      target.value = 0;
+      genCopy[target.dataset.id] = 0;
     }
+    this.setState({ genArray: genCopy });
   }
 
   renderGrid() {
@@ -30,8 +35,9 @@ class GameOfLife extends Component {
             if (!el) return;
             this.buttonElements[el.name] = el;
           }}
-          value="0"
+          value={this.state.genArray[i - 1]}
           handleClick={this.handleClick}
+          dataId={i - 1}
         />
       );
     }

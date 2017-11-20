@@ -23,6 +23,7 @@ class Tile extends Component {
         innerRef={this.props.inputRef}
         value={this.props.value}
         onClick={this.props.handleClick}
+        data-id={this.props.dataId}
       />
     );
   }
