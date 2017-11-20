@@ -11,6 +11,8 @@ Click squares to set initial arrangement of cells
 
 Click 'Next Generation!' to watch cells grow and die
 
+You can change the GameOfLife props column and width in App.js to change the grid size
+
 ### Rules of life:
 
 1. Any live cell with fewer than two live neighbors dies, as if caused by underpopulation.
