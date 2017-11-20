@@ -29,56 +29,84 @@ describe('can count neighbors', () => {
     // component.update();
     expect(component.instance().countNeighbors(indexNumber)).toEqual(0);
   });
-  test('above', () => {
+  test('on top', () => {
     const seed = [0, 1, 0, 0, 1, 0, 0, 0, 0];
     const indexNumber = 4;
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
 
     expect(component.instance().countNeighbors(indexNumber)).toEqual(1);
   });
-  test('below', () => {
+  test('on top-left', () => {
+    const seed = [1, 0, 0, 0, 1, 0, 0, 0, 0];
+    const indexNumber = 4;
+    const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
+
+    expect(component.instance().countNeighbors(indexNumber)).toEqual(1);
+  });
+  test('on top-right', () => {
+    const seed = [0, 0, 1, 0, 1, 0, 0, 0, 0];
+    const indexNumber = 4;
+    const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
+
+    expect(component.instance().countNeighbors(indexNumber)).toEqual(1);
+  });
+  test('on bottom', () => {
     const seed = [0, 0, 0, 0, 1, 0, 0, 1, 0];
     const indexNumber = 4;
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
 
     expect(component.instance().countNeighbors(indexNumber)).toEqual(1);
   });
-  test('left', () => {
+  test('on bottom-left', () => {
+    const seed = [0, 0, 0, 0, 1, 0, 1, 0, 0];
+    const indexNumber = 4;
+    const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
+
+    expect(component.instance().countNeighbors(indexNumber)).toEqual(1);
+  });
+  test('on bottom-right', () => {
+    const seed = [0, 0, 0, 0, 1, 0, 0, 0, 1];
+    const indexNumber = 4;
+    const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
+
+    expect(component.instance().countNeighbors(indexNumber)).toEqual(1);
+  });
+  test('on left', () => {
     const seed = [0, 0, 0, 1, 1, 0, 0, 0, 0];
     const indexNumber = 4;
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
 
     expect(component.instance().countNeighbors(indexNumber)).toEqual(1);
   });
-  test('right', () => {
+  test('on right', () => {
     const seed = [0, 0, 0, 0, 1, 1, 0, 0, 0];
     const indexNumber = 4;
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
 
     expect(component.instance().countNeighbors(indexNumber)).toEqual(1);
   });
-  test('on top edge', () => {
+  test('if on top edge', () => {
     const seed = [1, 1, 1, 0, 1, 0, 0, 0, 0];
     const indexNumber = 1;
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
 
     expect(component.instance().countNeighbors(indexNumber)).toEqual(3);
   });
-  test('on left edge', () => {
+  test('if on left edge', () => {
     const seed = [1, 0, 0, 1, 1, 0, 1, 0, 0];
     const indexNumber = 3;
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
 
     expect(component.instance().countNeighbors(indexNumber)).toEqual(3);
   });
-  test('on right edge', () => {
+  test('if on right edge', () => {
     const seed = [0, 0, 1, 0, 1, 1, 0, 0, 1];
     const indexNumber = 5;
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
 
     expect(component.instance().countNeighbors(indexNumber)).toEqual(3);
   });
-  test('on bottom edge', () => {
+  test('if on bottom edge', () => {
     const seed = [0, 0, 0, 0, 1, 0, 1, 1, 1];
     const indexNumber = 7;
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
@@ -89,22 +117,22 @@ describe('can count neighbors', () => {
     const seed = [1, 0, 1, 0, 1, 0];
     const component = shallow(<GameOfLife rows={2} columns={3} seed={seed} />);
 
-    expect(component.instance().countNeighbors(0)).toEqual(0);
+    expect(component.instance().countNeighbors(0)).toEqual(1);
     expect(component.instance().countNeighbors(1)).toEqual(3);
-    expect(component.instance().countNeighbors(2)).toEqual(0);
+    expect(component.instance().countNeighbors(2)).toEqual(1);
     expect(component.instance().countNeighbors(3)).toEqual(2);
-    expect(component.instance().countNeighbors(4)).toEqual(0);
+    expect(component.instance().countNeighbors(4)).toEqual(2);
     expect(component.instance().countNeighbors(5)).toEqual(2);
   });
 });
 
-xdescribe('logic', () => {
+describe('logic', () => {
   test('cell dies with 0 neighbors', () => {
     const seed = [0, 0, 0, 0, 1, 0, 0, 0, 0];
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
     component.find('button').simulate('click');
 
-    expect(component.state().cellArray).toEqual([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    expect(component.state().cellArray[4]).toEqual(0);
   });
 
   test('cell survives with 2 neighbors', () => {
@@ -112,7 +140,7 @@ xdescribe('logic', () => {
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
     component.find('button').simulate('click');
 
-    expect(component.state().cellArray).toEqual([0, 0, 0, 0, 1, 0, 0, 0, 0]);
+    expect(component.state().cellArray[4]).toEqual(1);
   });
 
   test('cell survives with 3 neighbors', () => {
@@ -120,7 +148,7 @@ xdescribe('logic', () => {
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
     component.find('button').simulate('click');
 
-    expect(component.state().cellArray).toEqual([0, 0, 0, 0, 1, 0, 0, 0, 0]);
+    expect(component.state().cellArray[4]).toEqual(1);
   });
 
   test('cell dies with 4 neighbors', () => {
@@ -128,7 +156,7 @@ xdescribe('logic', () => {
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
     component.find('button').simulate('click');
 
-    expect(component.state().cellArray).toEqual([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    expect(component.state().cellArray[4]).toEqual(0);
   });
 
   test('dead cell reproduces with 3 neighbors', () => {
@@ -136,6 +164,6 @@ xdescribe('logic', () => {
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
     component.find('button').simulate('click');
 
-    expect(component.state().cellArray).toEqual([0, 0, 0, 0, 1, 0, 0, 0, 0]);
+    expect(component.state().cellArray[4]).toEqual(1);
   });
 });

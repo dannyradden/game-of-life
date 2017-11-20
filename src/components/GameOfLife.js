@@ -55,27 +55,64 @@ class GameOfLife extends Component {
       );
     }
 
-    for (var i = 0; i < this.rows; i++) {
-      grid.push(<div key={i}>{items.splice(0, this.columns)}</div>);
+    for (var x = 0; x < this.rows; x++) {
+      grid.push(<div key={x}>{items.splice(0, this.columns)}</div>);
     }
 
     return grid;
   }
+
   nextGen() {
-    this.state.cellArray;
+    const cellArray = this.state.cellArray;
+    let cellArrayCopy = [...cellArray];
+
+    cellArray.forEach((e, i) => {
+      let neighbors = this.countNeighbors(i);
+      if (e === 0) {
+        if (neighbors === 3) {
+          cellArrayCopy[i] = 1;
+        }
+      } else {
+        if (neighbors === 0 || neighbors === 1 || neighbors > 3) {
+          cellArrayCopy[i] = 0;
+        }
+      }
+    });
+
+    this.setState({ cellArray: cellArrayCopy });
   }
 
   countNeighbors(index) {
     let count = 0;
     const array = this.state.cellArray;
 
-    // checks above neighbor
-    if (array[index - this.columns] && array[index - this.columns] === 1) {
-      count += 1;
+    if (array[index - this.columns] !== undefined) {
+      // checks top neighbor
+      if (array[index - this.columns] === 1) {
+        count += 1;
+      }
+      // checks top-left neighbor
+      if (index % this.columns !== 0 && array[index - 1 - this.columns] === 1) {
+        count += 1;
+      }
+      // checks top-right neighbor
+      if ((index + 1) % this.columns !== 0 && array[index + 1 - this.columns] === 1) {
+        count += 1;
+      }
     }
-    // checks below neighbor
-    if (array[index + this.columns] && array[index + this.columns] === 1) {
-      count += 1;
+    if (array[index + this.columns] !== undefined) {
+      // checks lower neighbor
+      if (array[index + this.columns] === 1) {
+        count += 1;
+      }
+      // checks lower-left neighbor
+      if (index % this.columns !== 0 && array[index - 1 + this.columns] === 1) {
+        count += 1;
+      }
+      // checks lower-right neighbor
+      if ((index + 1) % this.columns !== 0 && array[index + 1 + this.columns] === 1) {
+        count += 1;
+      }
     }
     // checks left neighbor
     if (index % this.columns !== 0 && array[index - 1] === 1) {
