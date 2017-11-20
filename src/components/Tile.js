@@ -22,6 +22,7 @@ class Tile extends Component {
         name={this.props.name}
         innerRef={this.props.inputRef}
         value={this.props.value}
+        onClick={this.props.handleClick}
       />
     );
   }

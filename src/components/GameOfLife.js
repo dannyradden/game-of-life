@@ -10,6 +10,14 @@ class GameOfLife extends Component {
     this.length = this.props.length;
   }
 
+  handleClick(e) {
+    if (e.target.value === '0') {
+      e.target.value = 1;
+    } else {
+      e.target.value = 0;
+    }
+  }
+
   renderGrid() {
     let items = [];
     let grid = [];
@@ -23,19 +31,28 @@ class GameOfLife extends Component {
             this.buttonElements[el.name] = el;
           }}
           value="0"
+          handleClick={this.handleClick}
         />
       );
     }
 
     for (var i = 0; i < this.length; i++) {
-      grid.push(<div>{items.splice(0, this.length)}</div>);
+      grid.push(<div key={i}>{items.splice(0, this.length)}</div>);
     }
 
     return grid;
   }
+  nextGen() {
+    console.log('Next Gen');
+  }
 
   render() {
-    return <div className="container">{this.renderGrid()}</div>;
+    return (
+      <div className="container">
+        <div className="grid">{this.renderGrid()}</div>
+        <button onClick={this.nextGen}>Next Generation!</button>
+      </div>
+    );
   }
 }
 
