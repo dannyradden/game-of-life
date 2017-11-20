@@ -4,12 +4,22 @@ import Tile from './Tile';
 class GameOfLife extends Component {
   constructor(props) {
     super(props);
-    this.state = { genArray: Array(props.rows ** props.columns).fill(0) };
-
-    this.buttonElements = {};
     this.rows = this.props.rows;
     this.columns = this.props.columns;
+    this.area = this.rows * this.columns;
+
+    this.state = { genArray: this.initializeGenArray() };
+
     this.handleClick = this.handleClick.bind(this);
+    this.buttonElements = {};
+  }
+
+  initializeGenArray() {
+    if (this.props.seed && this.props.seed.length === this.area) {
+      return this.props.seed;
+    } else {
+      return Array(this.area).fill(0);
+    }
   }
 
   handleClick({ target }) {
@@ -27,7 +37,7 @@ class GameOfLife extends Component {
   renderGrid() {
     let items = [];
     let grid = [];
-    for (var i = 1; i < this.columns * this.rows + 1; i++) {
+    for (var i = 1; i < this.area + 1; i++) {
       items.push(
         <Tile
           key={i}
