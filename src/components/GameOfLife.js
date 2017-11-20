@@ -86,40 +86,46 @@ class GameOfLife extends Component {
     let count = 0;
     const array = this.state.cellArray;
 
-    if (array[index - this.columns] !== undefined) {
-      // checks top neighbor
-      if (array[index - this.columns] === 1) {
+    const notOnLeftEdge = index % this.columns !== 0;
+    const notOnRightEdge = (index + 1) % this.columns !== 0;
+    const notOnTopEdge = array[index - this.columns] !== undefined;
+    const notOnBottomEdge = array[index + this.columns] !== undefined;
+
+    const top = array[index - this.columns] === 1;
+    const bot = array[index + this.columns] === 1;
+    const left = array[index - 1] === 1;
+    const right = array[index + 1] === 1;
+    const topLeft = array[index - 1 - this.columns] === 1;
+    const topRight = array[index + 1 - this.columns] === 1;
+    const botLeft = array[index - 1 + this.columns] === 1;
+    const botRight = array[index + 1 + this.columns] === 1;
+
+    if (notOnTopEdge) {
+      if (top) {
         count += 1;
       }
-      // checks top-left neighbor
-      if (index % this.columns !== 0 && array[index - 1 - this.columns] === 1) {
+      if (notOnLeftEdge && topLeft) {
         count += 1;
       }
-      // checks top-right neighbor
-      if ((index + 1) % this.columns !== 0 && array[index + 1 - this.columns] === 1) {
-        count += 1;
-      }
-    }
-    if (array[index + this.columns] !== undefined) {
-      // checks lower neighbor
-      if (array[index + this.columns] === 1) {
-        count += 1;
-      }
-      // checks lower-left neighbor
-      if (index % this.columns !== 0 && array[index - 1 + this.columns] === 1) {
-        count += 1;
-      }
-      // checks lower-right neighbor
-      if ((index + 1) % this.columns !== 0 && array[index + 1 + this.columns] === 1) {
+      if (notOnRightEdge && topRight) {
         count += 1;
       }
     }
-    // checks left neighbor
-    if (index % this.columns !== 0 && array[index - 1] === 1) {
+    if (notOnBottomEdge) {
+      if (bot) {
+        count += 1;
+      }
+      if (notOnLeftEdge && botLeft) {
+        count += 1;
+      }
+      if (notOnRightEdge && botRight) {
+        count += 1;
+      }
+    }
+    if (notOnLeftEdge && left) {
       count += 1;
     }
-    // checks right neighbor
-    if ((index + 1) % this.columns !== 0 && array[index + 1] === 1) {
+    if (notOnRightEdge && right) {
       count += 1;
     }
     return count;
