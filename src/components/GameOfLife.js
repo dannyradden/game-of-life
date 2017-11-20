@@ -7,11 +7,13 @@ class GameOfLife extends Component {
     this.state = {};
 
     this.buttonElements = {};
+    this.length = this.props.length;
   }
 
-  renderRow() {
+  renderGrid() {
     let items = [];
-    for (var i = 1; i < this.props.length + 1; i++) {
+    let grid = [];
+    for (var i = 1; i < this.length ** 2 + 1; i++) {
       items.push(
         <Tile
           key={i}
@@ -25,11 +27,15 @@ class GameOfLife extends Component {
       );
     }
 
-    return items;
+    for (var i = 0; i < this.length; i++) {
+      grid.push(<div>{items.splice(0, this.length)}</div>);
+    }
+
+    return grid;
   }
 
   render() {
-    return <div className="container">{this.renderRow()}</div>;
+    return <div className="container">{this.renderGrid()}</div>;
   }
 }
 
