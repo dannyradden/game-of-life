@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tile from './Tile';
+import { nextGen } from '../logic/gameLogic';
 
 class GameOfLife extends Component {
   constructor(props) {
@@ -8,15 +9,14 @@ class GameOfLife extends Component {
     this.columns = this.props.columns;
     this.area = this.rows * this.columns;
 
-    this.state = { cellArray: this.initializeGenArray() };
+    this.state = { cellArray: this.initializeCellArray() };
 
     this.handleClick = this.handleClick.bind(this);
-    this.nextGen = this.nextGen.bind(this);
-    this.countNeighbors = this.countNeighbors.bind(this);
+    this.handleNextGen = this.handleNextGen.bind(this);
     this.buttonElements = {};
   }
 
-  initializeGenArray() {
+  initializeCellArray() {
     if (this.props.seed && this.props.seed.length === this.area) {
       return this.props.seed;
     } else {
@@ -34,6 +34,11 @@ class GameOfLife extends Component {
       genCopy[target.dataset.id] = 0;
     }
     this.setState({ cellArray: genCopy });
+  }
+
+  handleNextGen() {
+    let cellArrayCopy = nextGen(this.columns, this.state.cellArray);
+    this.setState({ cellArray: cellArrayCopy });
   }
 
   renderGrid() {
@@ -62,80 +67,11 @@ class GameOfLife extends Component {
     return grid;
   }
 
-  nextGen() {
-    const cellArray = this.state.cellArray;
-    let cellArrayCopy = [...cellArray];
-
-    cellArray.forEach((e, i) => {
-      let neighbors = this.countNeighbors(i);
-      if (e === 0) {
-        if (neighbors === 3) {
-          cellArrayCopy[i] = 1;
-        }
-      } else {
-        if (neighbors === 0 || neighbors === 1 || neighbors > 3) {
-          cellArrayCopy[i] = 0;
-        }
-      }
-    });
-
-    this.setState({ cellArray: cellArrayCopy });
-  }
-
-  countNeighbors(index) {
-    let count = 0;
-    const array = this.state.cellArray;
-
-    const notOnLeftEdge = index % this.columns !== 0;
-    const notOnRightEdge = (index + 1) % this.columns !== 0;
-    const notOnTopEdge = array[index - this.columns] !== undefined;
-    const notOnBottomEdge = array[index + this.columns] !== undefined;
-
-    const top = array[index - this.columns] === 1;
-    const bot = array[index + this.columns] === 1;
-    const left = array[index - 1] === 1;
-    const right = array[index + 1] === 1;
-    const topLeft = array[index - 1 - this.columns] === 1;
-    const topRight = array[index + 1 - this.columns] === 1;
-    const botLeft = array[index - 1 + this.columns] === 1;
-    const botRight = array[index + 1 + this.columns] === 1;
-
-    if (notOnTopEdge) {
-      if (top) {
-        count += 1;
-      }
-      if (notOnLeftEdge && topLeft) {
-        count += 1;
-      }
-      if (notOnRightEdge && topRight) {
-        count += 1;
-      }
-    }
-    if (notOnBottomEdge) {
-      if (bot) {
-        count += 1;
-      }
-      if (notOnLeftEdge && botLeft) {
-        count += 1;
-      }
-      if (notOnRightEdge && botRight) {
-        count += 1;
-      }
-    }
-    if (notOnLeftEdge && left) {
-      count += 1;
-    }
-    if (notOnRightEdge && right) {
-      count += 1;
-    }
-    return count;
-  }
-
   render() {
     return (
       <div className="container">
         <div className="grid">{this.renderGrid()}</div>
-        <button onClick={this.nextGen}>Next Generation!</button>
+        <button onClick={this.handleNextGen}>Next Generation!</button>
       </div>
     );
   }

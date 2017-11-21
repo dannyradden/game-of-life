@@ -11,13 +11,15 @@ const Button = styled.button`
   border-radius: 5px;
   text-align: center;
   font-size: 20px;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-    Arial sans-serif;
-    outline: 0;
+  outline: 0;
   }
 `;
 
 class Tile extends Component {
+  shouldComponentUpdate(nextProps) {
+    return this.props.value !== nextProps.value ? true : false;
+  }
+
   render() {
     return (
       <Button
