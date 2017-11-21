@@ -6,7 +6,7 @@ import GameOfLife from './components/GameOfLife';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App" style={{ marginTop: '50px' }}>
         <GameOfLife rows={10} columns={10} />
       </div>
     );
