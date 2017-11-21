@@ -21,44 +21,14 @@ describe('rendering', () => {
   });
 });
 
-describe('Approriate state change', () => {
-  test('cell dies with 0 neighbors', () => {
-    const seed = [0, 0, 0, 0, 1, 0, 0, 0, 0];
+describe('State changes appropriately', () => {
+  test('when Next Generation! is clicked', () => {
+    const seed = [0, 0, 1, 0, 1, 1, 0, 1, 1];
     const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
-    component.find('button').simulate('click');
 
-    expect(component.state().cellArray[4]).toEqual(0);
-  });
-
-  test('cell survives with 2 neighbors', () => {
-    const seed = [0, 1, 0, 0, 1, 0, 0, 1, 0];
-    const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
-    component.find('button').simulate('click');
-
-    expect(component.state().cellArray[4]).toEqual(1);
-  });
-
-  test('cell survives with 3 neighbors', () => {
-    const seed = [0, 1, 0, 0, 1, 1, 0, 1, 0];
-    const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
-    component.find('button').simulate('click');
-
-    expect(component.state().cellArray[4]).toEqual(1);
-  });
-
-  test('cell dies with 4 neighbors', () => {
-    const seed = [0, 1, 0, 1, 1, 1, 0, 1, 0];
-    const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
-    component.find('button').simulate('click');
-
-    expect(component.state().cellArray[4]).toEqual(0);
-  });
-
-  test('dead cell reproduces with 3 neighbors', () => {
-    const seed = [0, 1, 0, 0, 0, 1, 0, 1, 0];
-    const component = shallow(<GameOfLife rows={3} columns={3} seed={seed} />);
-    component.find('button').simulate('click');
-
-    expect(component.state().cellArray[4]).toEqual(1);
+    component.find('.nextGenButton').simulate('click');
+    expect(component.state().cellArray).toEqual([0, 1, 1, 0, 0, 0, 0, 1, 1]);
+    component.find('.nextGenButton').simulate('click');
+    expect(component.state().cellArray).toEqual([0, 0, 0, 0, 0, 0, 0, 0, 0]);
   });
 });

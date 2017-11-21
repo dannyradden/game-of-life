@@ -33,39 +33,40 @@ ShallowWrapper {
           className="grid"
 >
           <div>
-                    <Tile
+                    <Cell
                               buttonRef={[Function]}
                               dataId={0}
-                              handleClick={[Function]}
+                              handleClickCell={[Function]}
                               name="tile1"
                               value={0}
                     />
-                    <Tile
+                    <Cell
                               buttonRef={[Function]}
                               dataId={1}
-                              handleClick={[Function]}
+                              handleClickCell={[Function]}
                               name="tile2"
                               value={1}
                     />
           </div>
           <div>
-                    <Tile
+                    <Cell
                               buttonRef={[Function]}
                               dataId={2}
-                              handleClick={[Function]}
+                              handleClickCell={[Function]}
                               name="tile3"
                               value={0}
                     />
-                    <Tile
+                    <Cell
                               buttonRef={[Function]}
                               dataId={3}
-                              handleClick={[Function]}
+                              handleClickCell={[Function]}
                               name="tile4"
                               value={1}
                     />
           </div>
 </div>,
         <button
+          className="nextGenButton"
           onClick={[Function]}
 >
           Next Generation!
@@ -82,33 +83,33 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <div>
-              <Tile
+              <Cell
                             buttonRef={[Function]}
                             dataId={0}
-                            handleClick={[Function]}
+                            handleClickCell={[Function]}
                             name="tile1"
                             value={0}
               />
-              <Tile
+              <Cell
                             buttonRef={[Function]}
                             dataId={1}
-                            handleClick={[Function]}
+                            handleClickCell={[Function]}
                             name="tile2"
                             value={1}
               />
 </div>,
             <div>
-              <Tile
+              <Cell
                             buttonRef={[Function]}
                             dataId={2}
-                            handleClick={[Function]}
+                            handleClickCell={[Function]}
                             name="tile3"
                             value={0}
               />
-              <Tile
+              <Cell
                             buttonRef={[Function]}
                             dataId={3}
-                            handleClick={[Function]}
+                            handleClickCell={[Function]}
                             name="tile4"
                             value={1}
               />
@@ -124,17 +125,17 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <Tile
+                <Cell
                   buttonRef={[Function]}
                   dataId={0}
-                  handleClick={[Function]}
+                  handleClickCell={[Function]}
                   name="tile1"
                   value={0}
 />,
-                <Tile
+                <Cell
                   buttonRef={[Function]}
                   dataId={1}
-                  handleClick={[Function]}
+                  handleClickCell={[Function]}
                   name="tile2"
                   value={1}
 />,
@@ -149,7 +150,7 @@ ShallowWrapper {
                 "props": Object {
                   "buttonRef": [Function],
                   "dataId": 0,
-                  "handleClick": [Function],
+                  "handleClickCell": [Function],
                   "name": "tile1",
                   "value": 0,
                 },
@@ -164,7 +165,7 @@ ShallowWrapper {
                 "props": Object {
                   "buttonRef": [Function],
                   "dataId": 1,
-                  "handleClick": [Function],
+                  "handleClickCell": [Function],
                   "name": "tile2",
                   "value": 1,
                 },
@@ -181,17 +182,17 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <Tile
+                <Cell
                   buttonRef={[Function]}
                   dataId={2}
-                  handleClick={[Function]}
+                  handleClickCell={[Function]}
                   name="tile3"
                   value={0}
 />,
-                <Tile
+                <Cell
                   buttonRef={[Function]}
                   dataId={3}
-                  handleClick={[Function]}
+                  handleClickCell={[Function]}
                   name="tile4"
                   value={1}
 />,
@@ -206,7 +207,7 @@ ShallowWrapper {
                 "props": Object {
                   "buttonRef": [Function],
                   "dataId": 2,
-                  "handleClick": [Function],
+                  "handleClickCell": [Function],
                   "name": "tile3",
                   "value": 0,
                 },
@@ -221,7 +222,7 @@ ShallowWrapper {
                 "props": Object {
                   "buttonRef": [Function],
                   "dataId": 3,
-                  "handleClick": [Function],
+                  "handleClickCell": [Function],
                   "name": "tile4",
                   "value": 1,
                 },
@@ -241,6 +242,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Next Generation!",
+          "className": "nextGenButton",
           "onClick": [Function],
         },
         "ref": null,
@@ -261,39 +263,40 @@ ShallowWrapper {
             className="grid"
 >
             <div>
-                        <Tile
+                        <Cell
                                     buttonRef={[Function]}
                                     dataId={0}
-                                    handleClick={[Function]}
+                                    handleClickCell={[Function]}
                                     name="tile1"
                                     value={0}
                         />
-                        <Tile
+                        <Cell
                                     buttonRef={[Function]}
                                     dataId={1}
-                                    handleClick={[Function]}
+                                    handleClickCell={[Function]}
                                     name="tile2"
                                     value={1}
                         />
             </div>
             <div>
-                        <Tile
+                        <Cell
                                     buttonRef={[Function]}
                                     dataId={2}
-                                    handleClick={[Function]}
+                                    handleClickCell={[Function]}
                                     name="tile3"
                                     value={0}
                         />
-                        <Tile
+                        <Cell
                                     buttonRef={[Function]}
                                     dataId={3}
-                                    handleClick={[Function]}
+                                    handleClickCell={[Function]}
                                     name="tile4"
                                     value={1}
                         />
             </div>
 </div>,
           <button
+            className="nextGenButton"
             onClick={[Function]}
 >
             Next Generation!
@@ -310,33 +313,33 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <div>
-                <Tile
+                <Cell
                                 buttonRef={[Function]}
                                 dataId={0}
-                                handleClick={[Function]}
+                                handleClickCell={[Function]}
                                 name="tile1"
                                 value={0}
                 />
-                <Tile
+                <Cell
                                 buttonRef={[Function]}
                                 dataId={1}
-                                handleClick={[Function]}
+                                handleClickCell={[Function]}
                                 name="tile2"
                                 value={1}
                 />
 </div>,
               <div>
-                <Tile
+                <Cell
                                 buttonRef={[Function]}
                                 dataId={2}
-                                handleClick={[Function]}
+                                handleClickCell={[Function]}
                                 name="tile3"
                                 value={0}
                 />
-                <Tile
+                <Cell
                                 buttonRef={[Function]}
                                 dataId={3}
-                                handleClick={[Function]}
+                                handleClickCell={[Function]}
                                 name="tile4"
                                 value={1}
                 />
@@ -352,17 +355,17 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <Tile
+                  <Cell
                     buttonRef={[Function]}
                     dataId={0}
-                    handleClick={[Function]}
+                    handleClickCell={[Function]}
                     name="tile1"
                     value={0}
 />,
-                  <Tile
+                  <Cell
                     buttonRef={[Function]}
                     dataId={1}
-                    handleClick={[Function]}
+                    handleClickCell={[Function]}
                     name="tile2"
                     value={1}
 />,
@@ -377,7 +380,7 @@ ShallowWrapper {
                   "props": Object {
                     "buttonRef": [Function],
                     "dataId": 0,
-                    "handleClick": [Function],
+                    "handleClickCell": [Function],
                     "name": "tile1",
                     "value": 0,
                   },
@@ -392,7 +395,7 @@ ShallowWrapper {
                   "props": Object {
                     "buttonRef": [Function],
                     "dataId": 1,
-                    "handleClick": [Function],
+                    "handleClickCell": [Function],
                     "name": "tile2",
                     "value": 1,
                   },
@@ -409,17 +412,17 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <Tile
+                  <Cell
                     buttonRef={[Function]}
                     dataId={2}
-                    handleClick={[Function]}
+                    handleClickCell={[Function]}
                     name="tile3"
                     value={0}
 />,
-                  <Tile
+                  <Cell
                     buttonRef={[Function]}
                     dataId={3}
-                    handleClick={[Function]}
+                    handleClickCell={[Function]}
                     name="tile4"
                     value={1}
 />,
@@ -434,7 +437,7 @@ ShallowWrapper {
                   "props": Object {
                     "buttonRef": [Function],
                     "dataId": 2,
-                    "handleClick": [Function],
+                    "handleClickCell": [Function],
                     "name": "tile3",
                     "value": 0,
                   },
@@ -449,7 +452,7 @@ ShallowWrapper {
                   "props": Object {
                     "buttonRef": [Function],
                     "dataId": 3,
-                    "handleClick": [Function],
+                    "handleClickCell": [Function],
                     "name": "tile4",
                     "value": 1,
                   },
@@ -469,6 +472,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Next Generation!",
+            "className": "nextGenButton",
             "onClick": [Function],
           },
           "ref": null,

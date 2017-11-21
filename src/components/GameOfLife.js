@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Tile from './Tile';
+import Cell from './Cell';
 import { nextGen } from '../logic/gameLogic';
 
 class GameOfLife extends Component {
@@ -11,7 +11,7 @@ class GameOfLife extends Component {
 
     this.state = { cellArray: this.initializeCellArray() };
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClickCell = this.handleClickCell.bind(this);
     this.handleNextGen = this.handleNextGen.bind(this);
     this.buttonElements = {};
   }
@@ -24,7 +24,7 @@ class GameOfLife extends Component {
     }
   }
 
-  handleClick({ target }) {
+  handleClickCell({ target }) {
     let genCopy = this.state.cellArray;
     if (target.value === '0') {
       target.value = 1;
@@ -46,7 +46,7 @@ class GameOfLife extends Component {
     let grid = [];
     for (var i = 1; i < this.area + 1; i++) {
       items.push(
-        <Tile
+        <Cell
           key={i}
           name={'tile' + i}
           buttonRef={el => {
@@ -54,7 +54,7 @@ class GameOfLife extends Component {
             this.buttonElements[el.name] = el;
           }}
           value={this.state.cellArray[i - 1]}
-          handleClick={this.handleClick}
+          handleClickCell={this.handleClickCell}
           dataId={i - 1}
         />
       );
@@ -71,7 +71,9 @@ class GameOfLife extends Component {
     return (
       <div className="container">
         <div className="grid">{this.renderGrid()}</div>
-        <button onClick={this.handleNextGen}>Next Generation!</button>
+        <button className="nextGenButton" onClick={this.handleNextGen}>
+          Next Generation!
+        </button>
       </div>
     );
   }

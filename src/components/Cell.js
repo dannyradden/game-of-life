@@ -12,12 +12,11 @@ const Button = styled.button`
   text-align: center;
   font-size: 20px;
   outline: 0;
-  }
 `;
 
-class Tile extends Component {
+class Cell extends Component {
   shouldComponentUpdate(nextProps) {
-    return this.props.value !== nextProps.value ? true : false;
+    return this.props.value !== nextProps.value;
   }
 
   render() {
@@ -27,11 +26,11 @@ class Tile extends Component {
         name={this.props.name}
         innerRef={this.props.inputRef}
         value={this.props.value}
-        onClick={this.props.handleClick}
+        onClick={this.props.handleClickCell}
         data-id={this.props.dataId}
       />
     );
   }
 }
 
-export default Tile;
+export default Cell;

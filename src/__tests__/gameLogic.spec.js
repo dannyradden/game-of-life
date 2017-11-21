@@ -1,5 +1,5 @@
 import React from 'react';
-import { countNeighbors } from '../logic/gameLogic';
+import { countNeighbors, nextGen } from '../logic/gameLogic';
 
 describe('can count neighbors', () => {
   test('none', () => {
@@ -103,5 +103,37 @@ describe('can count neighbors', () => {
     expect(countNeighbors(3, columns, cellArray)).toEqual(2);
     expect(countNeighbors(4, columns, cellArray)).toEqual(2);
     expect(countNeighbors(5, columns, cellArray)).toEqual(2);
+  });
+});
+
+describe('Cell state', () => {
+  test('dies with 0 neighbors', () => {
+    const cellArray = [0, 0, 0, 0, 1, 0, 0, 0, 0];
+
+    expect(nextGen(3, cellArray)[4]).toEqual(0);
+  });
+
+  test('survives with 2 neighbors', () => {
+    const cellArray = [0, 1, 0, 0, 1, 0, 0, 1, 0];
+
+    expect(nextGen(3, cellArray)[4]).toEqual(1);
+  });
+
+  test('survives with 3 neighbors', () => {
+    const cellArray = [0, 1, 0, 0, 1, 1, 0, 1, 0];
+
+    expect(nextGen(3, cellArray)[4]).toEqual(1);
+  });
+
+  test('dies with 4 neighbors', () => {
+    const cellArray = [0, 1, 0, 1, 1, 1, 0, 1, 0];
+
+    expect(nextGen(3, cellArray)[4]).toEqual(0);
+  });
+
+  test('reproduces with 3 neighbors', () => {
+    const cellArray = [0, 1, 0, 0, 0, 1, 0, 1, 0];
+
+    expect(nextGen(3, cellArray)[4]).toEqual(1);
   });
 });
